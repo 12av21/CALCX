@@ -19,6 +19,8 @@ fun ScientificCalculatorScreen(
     viewModel: CalculatorViewModel,
     onOpenHistory: () -> Unit,
     onOpenThemes: () -> Unit,
+    onOpenGuide: () -> Unit = {},
+    onOpenSettings: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     val theme = viewModel.themeManager.currentTheme
@@ -44,6 +46,8 @@ fun ScientificCalculatorScreen(
             onRedo = { viewModel.redo() },
             onOpenHistory = onOpenHistory,
             onOpenThemes = onOpenThemes,
+            onOpenGuide = onOpenGuide,
+            onOpenSettings = onOpenSettings,
             onToggleAngleUnit = { viewModel.toggleAngleUnit() },
             modifier = Modifier.weight(1f)
         )

@@ -46,10 +46,151 @@ data class ThemeColors(
     val buttonEqualsBg: Color,
     val buttonEqualsText: Color,
     val displayBg: Color,
-    val isGlassmorphism: Boolean = false
+    val isGlassmorphism: Boolean = false,
+    val isHackerTheme: Boolean = false
 )
 
 object PresetThemes {
+    // --- HACKER FAVORITES ---
+    val MatrixTerminal = ThemeColors(
+        id = "matrix_terminal",
+        name = "Matrix CRT",
+        isDark = true,
+        background = Color(0xFF030A04),
+        surface = Color(0xFF071408),
+        surfaceVariant = Color(0xFF0E2410),
+        textPrimary = Color(0xFF00FF41),
+        textSecondary = Color(0xFF009926),
+        accent = Color(0xFF00FF66),
+        accentSecondary = Color(0xFF39FF14),
+        buttonNumberBg = Color(0xFF08180A),
+        buttonNumberText = Color(0xFF00FF41),
+        buttonOperatorBg = Color(0xFF0A2B0E),
+        buttonOperatorText = Color(0xFF39FF14),
+        buttonActionBg = Color(0xFF0B1F0D),
+        buttonActionText = Color(0xFF00FF41),
+        buttonEqualsBg = Color(0xFF00FF41),
+        buttonEqualsText = Color(0xFF000000),
+        displayBg = Color(0xFF010501),
+        isHackerTheme = true
+    )
+
+    val KaliDragon = ThemeColors(
+        id = "kali_dragon",
+        name = "Kali Linux",
+        isDark = true,
+        background = Color(0xFF0B0E14),
+        surface = Color(0xFF141923),
+        surfaceVariant = Color(0xFF1F2636),
+        textPrimary = Color(0xFFE6EDF3),
+        textSecondary = Color(0xFF8B949E),
+        accent = Color(0xFF00D1FF),
+        accentSecondary = Color(0xFFFF2A55),
+        buttonNumberBg = Color(0xFF141923),
+        buttonNumberText = Color(0xFFF0F6FC),
+        buttonOperatorBg = Color(0xFF1B3854),
+        buttonOperatorText = Color(0xFF00D1FF),
+        buttonActionBg = Color(0xFF2B1C26),
+        buttonActionText = Color(0xFFFF2A55),
+        buttonEqualsBg = Color(0xFF00D1FF),
+        buttonEqualsText = Color(0xFF0B0E14),
+        displayBg = Color(0xFF07090E),
+        isHackerTheme = true
+    )
+
+    val DraculaDark = ThemeColors(
+        id = "dracula_dark",
+        name = "Dracula Dark",
+        isDark = true,
+        background = Color(0xFF1E1F29),
+        surface = Color(0xFF282A36),
+        surfaceVariant = Color(0xFF383A59),
+        textPrimary = Color(0xFFF8F8F2),
+        textSecondary = Color(0xFF6272A4),
+        accent = Color(0xFFBD93F9),
+        accentSecondary = Color(0xFF50FA7B),
+        buttonNumberBg = Color(0xFF282A36),
+        buttonNumberText = Color(0xFFF8F8F2),
+        buttonOperatorBg = Color(0xFF44475A),
+        buttonOperatorText = Color(0xFF8BE9FD),
+        buttonActionBg = Color(0xFF3B2E4A),
+        buttonActionText = Color(0xFFFF79C6),
+        buttonEqualsBg = Color(0xFFBD93F9),
+        buttonEqualsText = Color(0xFF282A36),
+        displayBg = Color(0xFF14151C),
+        isHackerTheme = true
+    )
+
+    val NordFrost = ThemeColors(
+        id = "nord_frost",
+        name = "Nord Frost",
+        isDark = true,
+        background = Color(0xFF242933),
+        surface = Color(0xFF2E3440),
+        surfaceVariant = Color(0xFF3B4252),
+        textPrimary = Color(0xFFECEFF4),
+        textSecondary = Color(0xFFD8DEE9),
+        accent = Color(0xFF88C0D0),
+        accentSecondary = Color(0xFF81A1C1),
+        buttonNumberBg = Color(0xFF2E3440),
+        buttonNumberText = Color(0xFFECEFF4),
+        buttonOperatorBg = Color(0xFF434C5E),
+        buttonOperatorText = Color(0xFF88C0D0),
+        buttonActionBg = Color(0xFF3B4252),
+        buttonActionText = Color(0xFFEBCB8B),
+        buttonEqualsBg = Color(0xFF88C0D0),
+        buttonEqualsText = Color(0xFF242933),
+        displayBg = Color(0xFF1C2028),
+        isHackerTheme = true
+    )
+
+    val MrRobot = ThemeColors(
+        id = "mr_robot",
+        name = "Mr. Robot Red",
+        isDark = true,
+        background = Color(0xFF080808),
+        surface = Color(0xFF141414),
+        surfaceVariant = Color(0xFF202020),
+        textPrimary = Color(0xFFEDEDED),
+        textSecondary = Color(0xFF888888),
+        accent = Color(0xFFFF1744),
+        accentSecondary = Color(0xFFFF5252),
+        buttonNumberBg = Color(0xFF181818),
+        buttonNumberText = Color(0xFFFFFFFF),
+        buttonOperatorBg = Color(0xFF330C12),
+        buttonOperatorText = Color(0xFFFF5252),
+        buttonActionBg = Color(0xFF261214),
+        buttonActionText = Color(0xFFFF1744),
+        buttonEqualsBg = Color(0xFFFF1744),
+        buttonEqualsText = Color(0xFFFFFFFF),
+        displayBg = Color(0xFF000000),
+        isHackerTheme = true
+    )
+
+    val CyberNeon = ThemeColors(
+        id = "cyber_neon",
+        name = "Cyber Neon",
+        isDark = true,
+        background = Color(0xFF05050A),
+        surface = Color(0xFF10101C),
+        surfaceVariant = Color(0xFF1B1B30),
+        textPrimary = Color(0xFF00FFCC),
+        textSecondary = Color(0xFFFF007F),
+        accent = Color(0xFF00FF66),
+        accentSecondary = Color(0xFFFF007F),
+        buttonNumberBg = Color(0xFF121224),
+        buttonNumberText = Color(0xFFE0FFFF),
+        buttonOperatorBg = Color(0xFF2A163B),
+        buttonOperatorText = Color(0xFFFF00AA),
+        buttonActionBg = Color(0xFF122828),
+        buttonActionText = Color(0xFF00FFCC),
+        buttonEqualsBg = Color(0xFF00FF88),
+        buttonEqualsText = Color(0xFF000000),
+        displayBg = Color(0xFF000000),
+        isHackerTheme = true
+    )
+
+    // --- CLASSIC PRESETS ---
     val MidnightBlack = ThemeColors(
         id = "midnight_black",
         name = "Midnight Black",
@@ -226,28 +367,6 @@ object PresetThemes {
         displayBg = Color(0xFFF1F5F9)
     )
 
-    val CyberNeon = ThemeColors(
-        id = "cyber_neon",
-        name = "Cyber Neon",
-        isDark = true,
-        background = Color(0xFF05050A),
-        surface = Color(0xFF10101C),
-        surfaceVariant = Color(0xFF1B1B30),
-        textPrimary = Color(0xFF00FFCC),
-        textSecondary = Color(0xFFFF007F),
-        accent = Color(0xFF00FF66),
-        accentSecondary = Color(0xFFFF007F),
-        buttonNumberBg = Color(0xFF121224),
-        buttonNumberText = Color(0xFFE0FFFF),
-        buttonOperatorBg = Color(0xFF2A163B),
-        buttonOperatorText = Color(0xFFFF00AA),
-        buttonActionBg = Color(0xFF122828),
-        buttonActionText = Color(0xFF00FFCC),
-        buttonEqualsBg = Color(0xFF00FF88),
-        buttonEqualsText = Color(0xFF000000),
-        displayBg = Color(0xFF000000)
-    )
-
     val Glassmorphism = ThemeColors(
         id = "glassmorphism",
         name = "Glassmorphism",
@@ -271,7 +390,24 @@ object PresetThemes {
         isGlassmorphism = true
     )
 
+    val hackerThemes = listOf(
+        MatrixTerminal,
+        KaliDragon,
+        DraculaDark,
+        NordFrost,
+        MrRobot,
+        CyberNeon
+    )
+
     val allPresets = listOf(
+        // Hacker Favorites first!
+        MatrixTerminal,
+        KaliDragon,
+        DraculaDark,
+        NordFrost,
+        MrRobot,
+        CyberNeon,
+        // Classic & Modern Presets
         MidnightBlack,
         PureAmoled,
         OceanBlue,
@@ -280,7 +416,6 @@ object PresetThemes {
         LavenderPurple,
         RosePink,
         MinimalWhite,
-        CyberNeon,
         Glassmorphism
     )
 

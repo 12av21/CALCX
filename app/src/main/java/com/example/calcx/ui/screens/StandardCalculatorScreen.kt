@@ -22,6 +22,8 @@ fun StandardCalculatorScreen(
     viewModel: CalculatorViewModel,
     onOpenHistory: () -> Unit,
     onOpenThemes: () -> Unit,
+    onOpenGuide: () -> Unit = {},
+    onOpenSettings: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     val theme = viewModel.themeManager.currentTheme
@@ -46,6 +48,8 @@ fun StandardCalculatorScreen(
             onRedo = { viewModel.redo() },
             onOpenHistory = onOpenHistory,
             onOpenThemes = onOpenThemes,
+            onOpenGuide = onOpenGuide,
+            onOpenSettings = onOpenSettings,
             onToggleAngleUnit = null,
             modifier = Modifier.weight(1f)
         )

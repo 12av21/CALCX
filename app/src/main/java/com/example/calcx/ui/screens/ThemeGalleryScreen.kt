@@ -189,15 +189,69 @@ fun ThemeGalleryScreen(
                 }
             }
 
-            // 10 Preset Themes Grid
+            // Hacker Favorites Section
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                Box(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(6.dp))
+                        .background(Color(0xFF00FF41).copy(alpha = 0.2f))
+                        .padding(horizontal = 8.dp, vertical = 4.dp)
+                ) {
+                    Text(
+                        text = "TERMINAL & HACKER",
+                        color = Color(0xFF00FF41),
+                        fontSize = 11.sp,
+                        fontWeight = FontWeight.Bold,
+                        letterSpacing = 1.sp
+                    )
+                }
+                Text(
+                    text = "Hacker Favorites",
+                    color = theme.accent,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 17.sp
+                )
+            }
+
+            PresetThemes.hackerThemes.chunked(2).forEach { rowPresets ->
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    rowPresets.forEach { preset ->
+                        val isSelected = !settings.customThemeActive && settings.themeId == preset.id
+                        ThemeCard(
+                            preset = preset,
+                            isSelected = isSelected,
+                            shapeType = settings.buttonShape,
+                            onSelect = {
+                                viewModel.themeManager.setTheme(preset.id)
+                                Toast.makeText(context, "Applied: ${preset.name}", Toast.LENGTH_SHORT).show()
+                            },
+                            modifier = Modifier.weight(1f)
+                        )
+                    }
+                    if (rowPresets.size == 1) {
+                        Spacer(modifier = Modifier.weight(1f))
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            // Classic & Modern Themes Section
             Text(
-                text = "Preset Themes",
+                text = "Classic & Modern Themes",
                 color = theme.accent,
                 fontWeight = FontWeight.Bold,
-                fontSize = 18.sp
+                fontSize = 17.sp
             )
 
-            PresetThemes.allPresets.chunked(2).forEach { rowPresets ->
+            PresetThemes.allPresets.filter { !it.isHackerTheme }.chunked(2).forEach { rowPresets ->
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(12.dp)
@@ -263,12 +317,25 @@ fun ThemeCard(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(
-                    text = preset.name,
-                    color = preset.textPrimary,
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 14.sp
-                )
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(4.dp)
+                ) {
+                    if (preset.isHackerTheme) {
+                        Text(
+                            text = ">_",
+                            color = preset.accent,
+                            fontSize = 12.sp,
+                            fontWeight = FontWeight.Black
+                        )
+                    }
+                    Text(
+                        text = preset.name,
+                        color = preset.textPrimary,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 13.sp
+                    )
+                }
                 if (isSelected) {
                     Icon(
                         imageVector = Icons.Default.Check,

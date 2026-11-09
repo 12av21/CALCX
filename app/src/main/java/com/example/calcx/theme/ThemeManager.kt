@@ -156,6 +156,14 @@ class ThemeManager(context: Context) {
         saveSettings(updated)
     }
 
+    fun hasSeenTutorial(): Boolean {
+        return prefs.getBoolean("has_seen_tutorial", false)
+    }
+
+    fun setHasSeenTutorial(seen: Boolean) {
+        prefs.edit().putBoolean("has_seen_tutorial", seen).apply()
+    }
+
     fun resetToDefaults() {
         val defaults = AppSettings()
         saveSettings(defaults)

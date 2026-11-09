@@ -31,6 +31,7 @@ fun SettingsScreen(
     viewModel: CalculatorViewModel,
     onBack: () -> Unit,
     onOpenThemes: () -> Unit,
+    onOpenGuide: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     BackHandler { onBack() }
@@ -179,6 +180,19 @@ fun SettingsScreen(
                     icon = Icons.Default.DeleteSweep,
                     tint = Color(0xFFFF5252),
                     onClick = { showClearHistoryDialog = true }
+                )
+            }
+
+            // Section: Help & Guide
+            SettingsSectionHeader(title = "Help & Documentation", color = theme.accent)
+
+            SettingsCard(theme = theme) {
+                SettingsActionRow(
+                    title = "How to Use CALCX",
+                    subtitle = "Interactive tutorial for basic, scientific, programmer & finance tools",
+                    icon = Icons.Default.HelpOutline,
+                    tint = theme.accent,
+                    onClick = onOpenGuide
                 )
             }
 

@@ -33,6 +33,11 @@ fun CalcxApp() {
     var currentScreen by remember { mutableStateOf(viewModel.currentScreen) }
     var previousScreen by remember { mutableStateOf("STANDARD") }
 
+    // Automatic onboarding tutorial on first launch, or when requested
+    var showGuideDialog by remember {
+        mutableStateOf(!viewModel.themeManager.hasSeenTutorial())
+    }
+
     fun navigateTo(screen: String) {
         if (screen != currentScreen) {
             previousScreen = currentScreen
@@ -52,7 +57,7 @@ fun CalcxApp() {
         navigateBack()
     }
 
-    val isSubScreen = currentScreen in listOf("HISTORY", "THEMES")
+    val isSubScreen = currentScreen in listOf("HISTORY", "THEMES", "SETTINGS")
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -84,12 +89,16 @@ fun CalcxApp() {
                     "STANDARD" -> StandardCalculatorScreen(
                         viewModel = viewModel,
                         onOpenHistory = { navigateTo("HISTORY") },
-                        onOpenThemes = { navigateTo("THEMES") }
+                        onOpenThemes = { navigateTo("THEMES") },
+                        onOpenGuide = { showGuideDialog = true },
+                        onOpenSettings = { navigateTo("SETTINGS") }
                     )
                     "SCIENTIFIC" -> ScientificCalculatorScreen(
                         viewModel = viewModel,
                         onOpenHistory = { navigateTo("HISTORY") },
-                        onOpenThemes = { navigateTo("THEMES") }
+                        onOpenThemes = { navigateTo("THEMES") },
+                        onOpenGuide = { showGuideDialog = true },
+                        onOpenSettings = { navigateTo("SETTINGS") }
                     )
                     "PROGRAMMER" -> ProgrammerCalculatorScreen(
                         viewModel = viewModel
@@ -111,14 +120,27 @@ fun CalcxApp() {
                     "SETTINGS" -> SettingsScreen(
                         viewModel = viewModel,
                         onBack = { navigateBack() },
-                        onOpenThemes = { navigateTo("THEMES") }
+                        onOpenThemes = { navigateTo("THEMES") },
+                        onOpenGuide = { showGuideDialog = true }
                     )
                     else -> StandardCalculatorScreen(
                         viewModel = viewModel,
                         onOpenHistory = { navigateTo("HISTORY") },
-                        onOpenThemes = { navigateTo("THEMES") }
+                        onOpenThemes = { navigateTo("THEMES") },
+                        onOpenGuide = { showGuideDialog = true },
+                        onOpenSettings = { navigateTo("SETTINGS") }
                     )
                 }
+            }
+
+            if (showGuideDialog) {
+                HowToUseGuideDialog(
+                    theme = theme,
+                    onDismiss = {
+                        viewModel.themeManager.setHasSeenTutorial(true)
+                        showGuideDialog = false
+                    }
+                )
             }
         }
     }

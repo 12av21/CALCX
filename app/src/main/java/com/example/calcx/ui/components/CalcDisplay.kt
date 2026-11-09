@@ -19,8 +19,10 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Redo
 import androidx.compose.material.icons.automirrored.filled.Undo
 import androidx.compose.material.icons.filled.ContentCopy
+import androidx.compose.material.icons.filled.HelpOutline
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Palette
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -53,6 +55,8 @@ fun CalcDisplay(
     onRedo: () -> Unit,
     onOpenHistory: () -> Unit,
     onOpenThemes: () -> Unit,
+    onOpenGuide: (() -> Unit)? = null,
+    onOpenSettings: (() -> Unit)? = null,
     onToggleAngleUnit: (() -> Unit)? = null,
     modifier: Modifier = Modifier
 ) {
@@ -208,6 +212,32 @@ fun CalcDisplay(
                         tint = theme.accent,
                         modifier = Modifier.size(18.dp)
                     )
+                }
+                if (onOpenGuide != null) {
+                    IconButton(
+                        onClick = onOpenGuide,
+                        modifier = Modifier.size(32.dp).testTag("action_guide")
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.HelpOutline,
+                            contentDescription = "How to use",
+                            tint = theme.accentSecondary,
+                            modifier = Modifier.size(18.dp)
+                        )
+                    }
+                }
+                if (onOpenSettings != null) {
+                    IconButton(
+                        onClick = onOpenSettings,
+                        modifier = Modifier.size(32.dp).testTag("action_settings")
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Settings,
+                            contentDescription = "Settings",
+                            tint = theme.textSecondary,
+                            modifier = Modifier.size(18.dp)
+                        )
+                    }
                 }
             }
         }
