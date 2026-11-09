@@ -1,0 +1,6 @@
+{
+  "name": "CALCX",
+  "description": "CALCX – Ultimate Smart Calculator with Standard, Scientific, Programmer, Financial, and Unit Converter modes, customizable themes, and history.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
